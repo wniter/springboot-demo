@@ -1,5 +1,7 @@
 package com.example.netty.chat.server;
 
+import com.example.netty.chat.protocol.*;
+import com.example.netty.chat.server.handler.*;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -16,11 +18,6 @@ import io.netty.handler.stream.ChunkedWriteHandler;
 
 import java.io.IOException;
 
-import com.gupaoedu.vip.netty.chat.protocol.IMDecoder;
-import com.gupaoedu.vip.netty.chat.protocol.IMEncoder;
-import com.gupaoedu.vip.netty.chat.server.handler.HttpServerHandler;
-import com.gupaoedu.vip.netty.chat.server.handler.TerminalServerHandler;
-import com.gupaoedu.vip.netty.chat.server.handler.WebSocketServerHandler;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

@@ -1,8 +1,9 @@
 package com.example.netty.tomcat.servlet;
 
-import com.gupaoedu.vip.netty.tomcat.http.GPRequest;
-import com.gupaoedu.vip.netty.tomcat.http.GPResponse;
-import com.gupaoedu.vip.netty.tomcat.http.GPServlet;
+
+import com.example.netty.tomcat.http.GPRequest;
+import com.example.netty.tomcat.http.GPResponse;
+import com.example.netty.tomcat.http.GPServlet;
 
 public class FirstServlet extends GPServlet {
 

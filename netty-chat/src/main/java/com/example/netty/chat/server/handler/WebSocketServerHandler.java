@@ -1,8 +1,9 @@
 package com.example.netty.chat.server.handler;
 
+import com.example.netty.chat.processor.MsgProcessor;
 import lombok.extern.slf4j.Slf4j;
 
-import com.gupaoedu.vip.netty.chat.processor.MsgProcessor;
+
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;

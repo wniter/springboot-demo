@@ -1,5 +1,7 @@
 package com.example.netty.chat.client.handler;
 
+import com.example.netty.chat.protocol.IMMessage;
+import com.example.netty.chat.protocol.IMP;
 import io.netty.channel.ChannelHandlerContext;
 
 

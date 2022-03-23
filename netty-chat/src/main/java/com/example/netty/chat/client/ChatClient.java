@@ -1,5 +1,8 @@
 package com.example.netty.chat.client;
 
+import com.example.netty.chat.client.handler.ChatClientHandler;
+import com.example.netty.chat.protocol.IMDecoder;
+import com.example.netty.chat.protocol.IMEncoder;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -11,9 +14,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.io.IOException;
 
-import com.gupaoedu.vip.netty.chat.client.handler.ChatClientHandler;
-import com.gupaoedu.vip.netty.chat.protocol.IMDecoder;
-import com.gupaoedu.vip.netty.chat.protocol.IMEncoder;
+
 
 /**
  * 客户端

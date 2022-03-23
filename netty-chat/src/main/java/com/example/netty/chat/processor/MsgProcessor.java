@@ -1,11 +1,12 @@
 package com.example.netty.chat.processor;
 
 import com.alibaba.fastjson.JSONObject;
-import com.gupaoedu.vip.netty.chat.protocol.IMDecoder;
-import com.gupaoedu.vip.netty.chat.protocol.IMEncoder;
-import com.gupaoedu.vip.netty.chat.protocol.IMMessage;
-import com.gupaoedu.vip.netty.chat.protocol.IMP;
 
+
+import com.example.netty.chat.protocol.IMDecoder;
+import com.example.netty.chat.protocol.IMEncoder;
+import com.example.netty.chat.protocol.IMMessage;
+import com.example.netty.chat.protocol.IMP;
 import io.netty.channel.Channel;
 import io.netty.channel.group.ChannelGroup;
 import io.netty.channel.group.DefaultChannelGroup;

@@ -1,9 +1,10 @@
 package com.example.netty.tomcat;
 
 
-import com.gupaoedu.vip.netty.tomcat.http.GPRequest;
-import com.gupaoedu.vip.netty.tomcat.http.GPResponse;
-import com.gupaoedu.vip.netty.tomcat.http.GPServlet;
+
+import com.example.netty.tomcat.http.GPRequest;
+import com.example.netty.tomcat.http.GPResponse;
+import com.example.netty.tomcat.http.GPServlet;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
@@ -27,7 +28,7 @@ public class GPTomcat {
 
 	private int port = 8080;
 
-	private Map<String,GPServlet> servletMapping = new HashMap<String,GPServlet>();
+	private Map<String, GPServlet> servletMapping = new HashMap<String,GPServlet>();
 
 	private Properties webxml = new Properties();
 
