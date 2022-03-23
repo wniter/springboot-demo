@@ -14,6 +14,7 @@ import java.util.Scanner;
  */
 
 /**
+ * DatagramChannel
  * 在Java中使用UDP协议传输数据，比TCP协议更加简单。和Socket套接字的TCP传输协
  * 议不同，UDP协议不是面向连接的协议。使用UDP协议时，只要知道服务器的IP和端口，
  * 就可以直接向对方发送数据。在Java NIO中，使用DatagramChannel数据报通道来处理UDP
