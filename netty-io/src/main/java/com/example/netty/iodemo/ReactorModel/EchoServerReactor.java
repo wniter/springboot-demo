@@ -37,9 +37,17 @@ import java.util.Set;
  * 键将被select方法查询出来，可以直接将选择键的附件对象取出。
  * 在Reactor模式实现中，通过attachment() 方法所取出的，是之前通过attach(Object o)方
  * 法绑定的Handler实例，然后通过该Handler实例，完成相应的传输处理
+ *
+ * 总之，在反应器模式中，需要进行attach和attachment结合使用：在选择键注册完成之
+ * 后，调用attach方法，将Handler实例绑定到选择键；当IO事件发生时，调用attachment方
+ * 法，可以从选择键取出Handler实例，将事件分发到Handler处理器中，完成业务处理。
  */
-//反应器
+//单线程Reactor反应器
 public class EchoServerReactor implements Runnable {
+
+    public static void main(String[] args) throws IOException {
+        new Thread(new EchoServerReactor()).start();
+    }
 
     Selector selector;
     ServerSocketChannel serverSocket;
@@ -64,6 +72,7 @@ public class EchoServerReactor implements Runnable {
     }
 
     public void run() {
+        //选择器轮询
         try {
             while (!Thread.interrupted()) {
                 selector.select();
@@ -81,6 +90,7 @@ public class EchoServerReactor implements Runnable {
         }
     }
 
+    //反应器的分发事件
     void dispatch(SelectionKey sk) {
         Runnable handler = (Runnable) sk.attachment();
         //调用之前attach绑定到选择键的handler处理器对象
@@ -93,6 +103,7 @@ public class EchoServerReactor implements Runnable {
     class AcceptorHandler implements Runnable {
         public void run() {
             try {
+                // 处理器：处理新连接
                 SocketChannel channel = serverSocket.accept();
                 if (channel != null)
                     new EchoHandler(selector, channel);
@@ -103,7 +114,4 @@ public class EchoServerReactor implements Runnable {
     }
 
 
-    public static void main(String[] args) throws IOException {
-        new Thread(new EchoServerReactor()).start();
-    }
 }

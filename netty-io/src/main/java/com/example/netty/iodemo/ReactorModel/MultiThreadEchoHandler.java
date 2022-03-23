@@ -1,6 +1,5 @@
 package com.example.netty.iodemo.ReactorModel;
 
-
 import com.example.netty.common.util.Logger;
 
 import java.io.IOException;
@@ -8,50 +7,38 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-
-//EchoHandler就是负责socket连接的数据输入、业务处理、结果输出
-
-class EchoHandler implements Runnable {
+class MultiThreadEchoHandler implements Runnable {
     final SocketChannel channel;
     final SelectionKey sk;
     final ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
     static final int RECIEVING = 0, SENDING = 1;
     int state = RECIEVING;
+    //引入线程池
+    static ExecutorService pool = Executors.newFixedThreadPool(4);
 
-    /**
-     * 在传输处理器EchoHandler的构造器中，有两点比较重要：
-     * （1）将新的SocketChannel传输通道，注册到了反应器Reactor类的同一个选择器中。
-     * 这样保证了Reactor在查询IO事件时，能查询到Handler注册到选择器的IO事件（数据传输事
-     * 件）。
-     * （2）Channel传输通道注册完成后，将EchoHandler实例自身作为附件，attach到了选择
-     * 键中。这样，在Reactor类分发事件（选择键）时，能执行到IOHandler的run方法，完成数
-     * 据传输处理。
-     * 如果由于上面的示例代码过于复杂而导致不能被快速的理解，可以参考下面的
-     * EchoServer回显服务器实例，自己动手开发一个可以执行的单线程反应器实例。
-     *
-     * @param selector
-     * @param c
-     * @throws IOException
-     */
-    EchoHandler(Selector selector, SocketChannel c) throws IOException {
+    MultiThreadEchoHandler(Selector selector, SocketChannel c) throws IOException {
         channel = c;
         c.configureBlocking(false);
         //仅仅取得选择键，后设置感兴趣的IO事件
         sk = channel.register(selector, 0);
-
-        //将Handler作为选择键的附件
+        //将本Handler作为sk选择键的附件，方便事件dispatch
         sk.attach(this);
-
-        //第二步,注册Read就绪事件
+        //向sk选择键注册Read就绪事件
         sk.interestOps(SelectionKey.OP_READ);
         selector.wakeup();
     }
 
     public void run() {
+        //异步任务，在独立的线程池中执行
+        pool.execute(new AsyncTask());
+    }
 
+    //异步任务，不在Reactor线程中执行
+    public synchronized void asyncRun() {
         try {
-
             if (state == SENDING) {
                 //写入通道
                 channel.write(byteBuffer);
@@ -81,6 +68,12 @@ class EchoHandler implements Runnable {
         }
     }
 
+    //异步任务的内部类
+    class AsyncTask implements Runnable {
+        public void run() {
+            MultiThreadEchoHandler.this.asyncRun();
+        }
+    }
 
 }
 
