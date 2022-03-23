@@ -1,10 +1,10 @@
-package com.example.netty.io;
+package com.example.netty.rpc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class NettyIoApplicationTests {
+class NettyRpcApplicationTests {
 
     @Test
     void contextLoads() {
