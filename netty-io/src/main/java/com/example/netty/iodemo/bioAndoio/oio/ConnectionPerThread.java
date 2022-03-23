@@ -30,6 +30,12 @@ public class ConnectionPerThread implements Runnable {
     public void run() {
         try {
             ServerSocket serverSocket = new ServerSocket(NioDemoConfig.SOCKET_SERVER_PORT);
+
+            /**
+             * 多线程OIO的致命缺陷
+             * 这里的while下socket没有处理完，接下来就阻塞了
+             * 所以提出了reactor反应器
+             */
             while (!Thread.interrupted()) {
                 Socket socket = serverSocket.accept();
                 Handler handler = new Handler(socket);
