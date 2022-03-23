@@ -83,7 +83,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.netty.websocket.NettyWebsocketApplication</mainClass>
+                    <mainClass>com.example.io.websocket.NettyWebsocketApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

@@ -98,7 +98,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.netty.chat.NettyChatApplication</mainClass>
+                    <mainClass>com.example.io.chat.NettyChatApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

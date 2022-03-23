@@ -67,7 +67,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.netty.tomcat.NettyTomcatApplication</mainClass>
+                    <mainClass>com.example.io.tomcat.NettyTomcatApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
