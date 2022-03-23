@@ -19,7 +19,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
+/**
+ * 在反应器（Reactor）模式中，所有的业务处理都在Handler处理器中完成，业务处理一
+ * 般需要自己编写，这里编写一个新类：NettyDiscardHandler。
+ */
 public class NettyDiscardHandler extends ChannelInboundHandlerAdapter {
+    //业务代码
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 
