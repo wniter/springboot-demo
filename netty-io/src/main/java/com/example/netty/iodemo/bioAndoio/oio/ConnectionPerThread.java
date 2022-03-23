@@ -1,4 +1,4 @@
-package com.example.netty.iodemo.bioandoio.oio;
+package com.example.netty.iodemo.bioAndoio.oio;
 
 import com.example.netty.NioDemoConfig;
 
@@ -67,3 +67,4 @@ public class ConnectionPerThread implements Runnable {
         }
     }
 }
+
