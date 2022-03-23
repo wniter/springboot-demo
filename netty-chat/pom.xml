@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>netty-rpc</artifactId>
+    <artifactId>netty-chat</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>netty-rpc</name>
+    <name>netty-chat</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -16,19 +16,6 @@
     </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.6.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.16.10</version>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -76,7 +63,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.netty.rpc.NettyRpcApplication</mainClass>
+                    <mainClass>com.example.netty.chat.NettyChatApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
