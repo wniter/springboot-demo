@@ -1,0 +1,25 @@
+# 应用名称
+#spring.application.name=demo-jpa-mysql
+
+database:
+  type: sql
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nettytest?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&serverTimezone=UTC&nullCatalogMeansCurrent=true&useSSL=false&autoReconnect=true
+    username: root
+    password: 123456
+
+
+# netty server parameters
+netty:
+  # Enable/disable mqtt transport protocol.
+  enabled: true
+  bind_address: 0.0.0.0
+  bind_port: 9191
+  boss_group_thread_count: 1
+  worker_group_thread_count: 8
+
+

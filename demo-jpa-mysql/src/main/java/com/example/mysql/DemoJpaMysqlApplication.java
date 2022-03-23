@@ -1,13 +1,13 @@
-package com.example.netty.io;
+package com.example.mysql;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NettyIoApplication {
+public class DemoJpaMysqlApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(NettyIoApplication.class, args);
+        SpringApplication.run(DemoJpaMysqlApplication.class, args);
     }
 
 }
