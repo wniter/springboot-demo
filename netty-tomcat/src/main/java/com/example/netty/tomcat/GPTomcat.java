@@ -26,7 +26,7 @@ import java.util.Properties;
 public class GPTomcat {
 	//打开Tomcat源码，全局搜索ServerSocket
 
-	private int port = 8080;
+	private int port = 80;
 
 	private Map<String, GPServlet> servletMapping = new HashMap<String,GPServlet>();
 
