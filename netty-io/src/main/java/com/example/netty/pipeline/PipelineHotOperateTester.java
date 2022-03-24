@@ -9,6 +9,12 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.embedded.EmbeddedChannel;
 import org.junit.Test;
 
+/**
+ * 在流水线上热插拔Handler处理器
+ *Netty中的处理器流水线是一个双向链表。在程序执行过程中，可以动态进行业务处理
+ * 器的热插拔：动态地增加、删除流水线上的业务处理器Handler。
+ *
+ */
 public class PipelineHotOperateTester {
     static class SimpleInHandlerA extends ChannelInboundHandlerAdapter {
 
@@ -64,4 +70,13 @@ public class PipelineHotOperateTester {
             e.printStackTrace();
         }
     }
+    /**
+     * [main|PipelineHotOperateTester$SimpleInHandlerA.channelRead] |>  入站处理器 A: 被回调
+     * [main|PipelineHotOperateTester$SimpleInHandlerB.channelRead] |>  入站处理器 B: 被回调
+     * [main|PipelineHotOperateTester$SimpleInHandlerC.channelRead] |>  入站处理器 C: 被回调
+     * [main|PipelineHotOperateTester$SimpleInHandlerB.channelRead] |>  入站处理器 B: 被回调
+     * [main|PipelineHotOperateTester$SimpleInHandlerC.channelRead] |>  入站处理器 C: 被回调
+     * [main|PipelineHotOperateTester$SimpleInHandlerB.channelRead] |>  入站处理器 B: 被回调
+     * [main|PipelineHotOperateTester$SimpleInHandlerC.channelRead] |>  入站处理器 C: 被回调
+     */
 }
