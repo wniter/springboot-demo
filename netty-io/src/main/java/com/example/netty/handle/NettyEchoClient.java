@@ -14,6 +14,12 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 
 import java.util.Scanner;
 
+/**
+ * begin client
+ *客户端NettyEchoClientHandler入站处理器中，接受回写的数据，并且释放内存。
+ *
+ *
+ */
 public class NettyEchoClient {
 
     private int serverPort;
