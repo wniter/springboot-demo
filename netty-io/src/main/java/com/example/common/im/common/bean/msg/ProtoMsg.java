@@ -7389,7 +7389,7 @@ public final class ProtoMsg {
 
   static {
     java.lang.String[] descriptorData = {
-            "\n\016ProtoMsg.proto\022\'com.crazymakercircle.i" +
+            "\n\016ProtoMsg.proto\022\'com.example.netty.common.i" +
                     "m.common.bean.msg\"c\n\014LoginRequest\022\013\n\003uid" +
                     "\030\001 \001(\t\022\020\n\010deviceId\030\002 \001(\t\022\r\n\005token\030\003 \001(\t\022" +
                     "\020\n\010platform\030\004 \001(\r\022\023\n\013app_version\030\005 \001(\t\"K" +
@@ -7405,7 +7405,7 @@ public final class ProtoMsg {
                     "dex\030\006 \001(\007\"X\n\023MessageNotification\022\020\n\010msg_" +
                     "type\030\001 \001(\r\022\016\n\006sender\030\002 \001(\014\022\014\n\004json\030\003 \001(\t" +
                     "\022\021\n\ttimestamp\030\004 \001(\t\"\204\004\n\007Message\022?\n\004type\030" +
-                    "\001 \001(\01621.com.crazymakercircle.im.common.b" +
+                    "\001 \001(\01621.com.example.netty.common.im.common.b" +
                     "ean.msg.HeadType\022\020\n\010sequence\030\002 \001(\004\022\022\n\nse" +
                     "ssion_id\030\003 \001(\t\022K\n\014loginRequest\030\004 \001(\01325.c" +
                     "om.crazymakercircle.im.common.bean.msg.L" +

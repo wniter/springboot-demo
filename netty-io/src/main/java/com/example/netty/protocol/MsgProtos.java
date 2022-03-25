@@ -18,7 +18,7 @@ public final class MsgProtos {
     }
 
     public interface MsgOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:com.crazymakercircle.netty.protocol.Msg)
+            // @@protoc_insertion_point(interface_extends:com.example.netty.common.netty.protocol.Msg)
             com.google.protobuf.MessageOrBuilder {
 
         /**
@@ -47,11 +47,11 @@ public final class MsgProtos {
      * [START messages]
      * </pre>
      * <p>
-     * Protobuf type {@code com.crazymakercircle.netty.protocol.Msg}
+     * Protobuf type {@code com.example.netty.common.netty.protocol.Msg}
      */
     public static final class Msg extends
             com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:com.crazymakercircle.netty.protocol.Msg)
+            // @@protoc_insertion_point(message_implements:com.example.netty.common.netty.protocol.Msg)
             MsgOrBuilder {
         private static final long serialVersionUID = 0L;
 
@@ -373,11 +373,11 @@ public final class MsgProtos {
          * [START messages]
          * </pre>
          * <p>
-         * Protobuf type {@code com.crazymakercircle.netty.protocol.Msg}
+         * Protobuf type {@code com.example.netty.common.netty.protocol.Msg}
          */
         public static final class Builder extends
                 com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:com.crazymakercircle.netty.protocol.Msg)
+                // @@protoc_insertion_point(builder_implements:com.example.netty.common.netty.protocol.Msg)
                 MsgOrBuilder {
             public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
@@ -662,10 +662,10 @@ public final class MsgProtos {
             }
 
 
-            // @@protoc_insertion_point(builder_scope:com.crazymakercircle.netty.protocol.Msg)
+            // @@protoc_insertion_point(builder_scope:com.example.netty.common.netty.protocol.Msg)
         }
 
-        // @@protoc_insertion_point(class_scope:com.crazymakercircle.netty.protocol.Msg)
+        // @@protoc_insertion_point(class_scope:com.example.netty.common.netty.protocol.Msg)
         private static final Msg DEFAULT_INSTANCE;
 
         static {
@@ -719,9 +719,9 @@ public final class MsgProtos {
 
     static {
         String[] descriptorData = {
-                "\n\tMsg.proto\022#com.crazymakercircle.netty." +
+                "\n\tMsg.proto\022#com.example.netty.common.netty." +
                         "protocol\"\"\n\003Msg\022\n\n\002id\030\001 \001(\r\022\017\n\007content\030\002" +
-                        " \001(\tB0\n#com.crazymakercircle.netty.proto" +
+                        " \001(\tB0\n#com.example.netty.common.netty.proto" +
                         "colB\tMsgProtosb\006proto3"
         };
         com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
