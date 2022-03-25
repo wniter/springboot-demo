@@ -1,6 +1,6 @@
 package com.example.spring.jedis.jedis;
 
-import com.crazymakercircle.util.Logger;
+import com.example.spring.jedis.config.Logger;
 import org.junit.Test;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.Tuple;

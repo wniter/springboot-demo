@@ -15,6 +15,12 @@ import java.util.UUID;
 
 /**
  * 实现服务器Socket Session会话
+ * 在登录成功之后，服务器端会为每一个新连接通道创建一个ServerSession实例，用于
+ * 保持用户与服务器端的会话信息。每个ServerSession实例都拥有一个唯一标识，为
+ * SessionId。注意SessionId不一定是Userid。为什么呢？主要原因是：同一个用户可能从网页
+ * 端、手机端、电脑桌面，同时登录IM服务器端，就像微信、QQ那样，此时，同一个用户
+ * 的消息需要在手机端、网页端、桌面端进行同步，各个终端需要能同时接收消息、同时发
+ * 送消息。
  */
 @Data
 @Slf4j

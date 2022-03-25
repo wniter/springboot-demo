@@ -21,6 +21,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+/**
+ * 客户端流水线的装配
+ *  在客户端的业务处理器流水线（Pipeline）上，首先需要装配一个ProtobufDecoder解码
+ * 器和一个ProtobufEncoder编码器，编码器和解码器一般都是装配在最前面。然后需要装配
+ * 业务处理器——LoginResponceHandler登录响应处理器。
+ * 一般来说，在流水线最后还需要装配一个异常处理器ExceptionHandler，它也是一个入
+ * 站处理器，用来实现Netty异常的处理以及在连接异常中断后进行重连。
+ */
 @Slf4j
 @Data
 @Service("NettyClient")

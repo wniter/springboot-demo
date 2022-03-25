@@ -23,6 +23,17 @@ import org.springframework.stereotype.Service;
 
 import java.net.InetSocketAddress;
 
+/**
+ * 服务器端的登录响应的实践案例
+ *  服务器端的登录处理流程是：
+ * （1）ProtobufDecoder解码器把请求Bytebuf数据包解码成Protobuf数据包。
+ * （2）UserLoginRequestHandler登录处理器负责处理Protobuf数据包，进行一些必要的
+ * 判断和预处理后，启动LoginProcesser登录业务处理器，以异步方式进行登录验证处理。
+ * （3）LoginProcesser通过数据库或者远程接口完成用户验证，根据验证处理的结果，
+ * 生成登录成功/或者失败的登录响应报文，并发送给到客户端。
+ *
+ *
+ */
 @Data
 @Slf4j
 @Service("ChatServer")

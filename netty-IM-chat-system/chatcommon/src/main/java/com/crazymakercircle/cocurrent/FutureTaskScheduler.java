@@ -11,7 +11,20 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
+/**
+ * 在一个EventLoop内部线程上任务是串行的。如果一个Handler业务处理器中的
+ * channelRead() 入站处理方法执行1000ms或者几秒钟，最终的结果是，阻塞了EventLoop内
+ * 部线程其他几十万个通道的出站和入站处理，阻塞时长为1000ms或者几秒钟。而耗时的入
+ * 站/出站处理越多，就越会拖慢整个线程的其他IO处理，最终导致严重的性能问题。
+ * 就这样，严重的性能问题就出来了。咋办呢？解决办法是：业务操作和EventLoop线程
+ * 相隔离。具体来说，就是专门开辟一个独立的线程池，负责一个独立的异步任务处理。对
+ * 于耗时的业务操作封装成异步任务，并放入独立的线程池中去处理。这样的话，服务器端
+ * 的性能会提升很多，避免了对IO操作的阻塞。
+ * 有两种办法使用独立的线程池：（1）使用Netty的EventLoopGroup线程池 （2）使用
+ * 自己创建的Java线程池.
+ * 方法1：创建Netty的EventLoopGroup线程池，专用于处理耗时任务。
+ * 方法2：创建一个专门的JAVA线程池，专用于处理耗时任务。
+ */
 public class FutureTaskScheduler extends Thread {
     private final Logger logger = Logger.getLogger(this.getClass());
     private ConcurrentLinkedQueue<ExecuteTask> executeTaskQueue =

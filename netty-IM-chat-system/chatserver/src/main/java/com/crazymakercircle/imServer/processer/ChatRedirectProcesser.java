@@ -9,6 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * 服务器端的ChatRedirectProcesser异步转发
+ *  ChatRedirectProcesser异步消息转发类负责将消息发送到目标用户，这个一个异步执行
+ * 的任务，其大致功能如下：
+ * （1）根据目标用户ID，找出所有的服务器端的会话列表。
+ * （2）然后为每一个会话转发一份消息。
+ */
 @Slf4j
 @Service("ChatRedirectProcesser")
 public class ChatRedirectProcesser extends AbstractServerProcesser {

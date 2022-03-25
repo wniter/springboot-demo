@@ -11,6 +11,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * 服务器端的ChatRedirectHandler消息转发
+ *服务器端收到聊天消息后，会进行消息的转发，主要由消息转发处理器
+ * ChatRedirectHandler负责，其大致的工作如下：
+ * （1）对消息类型进行判断：判断是否为聊天请求Protobuf数据包。如果不是，通过调
+ * 用super.channelRead(ctx, msg) 将消息交给流水线的下一站；
+ * （2）对消息发送方用户登录进行判断：如果没有登录，则不能发送消息；
+ * （3）开启异步的消息转发，由其ChatRedirectProcesser实例负责完成消息转发。
+ */
 @Slf4j
 @Service("ChatRedirectHandler")
 @ChannelHandler.Sharable

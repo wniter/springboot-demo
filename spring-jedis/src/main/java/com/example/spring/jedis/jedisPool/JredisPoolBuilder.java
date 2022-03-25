@@ -1,6 +1,6 @@
 package com.example.spring.jedis.jedisPool;
 
-import com.crazymakercircle.util.Logger;
+import com.example.spring.jedis.config.Logger;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;

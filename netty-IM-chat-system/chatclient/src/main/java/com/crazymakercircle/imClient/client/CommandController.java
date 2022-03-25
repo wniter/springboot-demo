@@ -17,6 +17,14 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 客户端的CommandController发送POJO
+ * ChatConsoleCommand的调用者是CommandController命令控制类，该控制类在收集完
+ * 成聊天内容和目标用户后，在自己的startOneChat（…）方法中调用ChatSender发送实例，
+ * 将聊天消息组装成Protobuf数据包，通过客户端的通道发往服务器端。
+ *
+ *
+ */
 @Slf4j
 @Data
 @Service("CommandController")

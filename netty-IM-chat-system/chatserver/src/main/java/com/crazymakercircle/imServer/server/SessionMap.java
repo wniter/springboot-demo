@@ -11,6 +11,12 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
+/**
+ * 一台服务器需要接受几万/几十万的客户端连接，每一条连接都对应到一个
+ * ServerSession实例，服务器需要对大量的ServerSession实例进行管理。这里使用一个会话容
+ * 器SessionMap，负责管理服务器端所有的ServerSession，其内部使用一个线程安全的
+ * ConcurrentHashMap类型的映射成员，保持sessionId到服务器端ServerSession的映射。
+ */
 @Slf4j
 @Data
 public final class SessionMap {

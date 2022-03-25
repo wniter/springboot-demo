@@ -5,6 +5,10 @@ import com.crazymakercircle.imClient.protoBuilder.LoginMsgBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+/**
+ * LoginSender消息发送器的sendLoginMsg方法主要有两步：第一步生成Protobuf登录数
+ * 据包，在第二步则是调用BaseSender基类的sendMsg方法来发送数据包。
+ */
 @Slf4j
 @Service("LoginSender")
 public class LoginSender extends BaseSender {

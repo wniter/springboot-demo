@@ -10,6 +10,27 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ *LoginProcesser用户验证逻辑主要包括：密码验证、将验证的结果写入到通道。如果登
+ * 录验证成功，还需要实现通道与服务器端会话的双向绑定，并且将服务器端会话加入到在
+ * 线用户列表中。
+ *
+ * 用户密码验证的逻辑，在checkUser()方法中完成。在实际的生产场景中，
+ * LoginProcesser进行用户登录验证的方式比较多：
+ * ⚫ 通过RESTful接口验证用户
+ * ⚫ 通过数据库去验证用户
+ * ⚫ 通过认证（Auth）服务器去验证用户
+ * 总之，验证用户涉及到RPC等耗时操作，为了尽量地简化流程，示例程序代码省去了
+ * 通过账号和密码验证的过程，checkUser() 方法直接返回true，也就是默认所有的登录都是
+ * 成功的。
+ * 服务器端校验通过之后，可以完成服务器端会话（ServerSession）的绑定工作。服务
+ * 器端的ServerSession会话与客户端的ClientSession会话类似，也是一个胶水类。每一个
+ * ServerSession拥有一个Channel成员实例、一个User成员实例。Channel成员代表与客户端连
+ * 接的子通道；User成员代表用户信息。稍后，会对ServerSession进行详细介绍。
+ * 在用户校验成功后，服务端就需要向客户端发送登录响应。具体的方法是：调用登录
+ * 响应的Protobuf消息构造器loginResponceBuilder，构造一个登录响应POJO实例，设置好校
+ * 验成功的标志位，调用会话（Session）的writeAndFlush()方法写到客户端。
+ */
 @Slf4j
 @Service("LoginProcesser")
 public class LoginProcesser extends AbstractServerProcesser {

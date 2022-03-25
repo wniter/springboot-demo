@@ -12,6 +12,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * LoginRequestHandler登录请求处理器
+ *  这是个入站处理器，它继承自ChannelInboundHandlerAdapter入站适配器，重写了适配
+ * 器的channelRead方法，主要的工作如下：
+ * （1）对消息进行必要的判断：判断是否为登录请求Protobuf数据包。如果不是，通过
+ * super.channelRead(ctx, msg) 将消息交给流水线的下一个入站处理器。
+ * （2）如果是登录请求Protobuf数据包，准备进行登录处理，提前为客户建立一个服务
+ * 器端的会话ServerSession。 （3）使用自定义的CallbackTaskScheduler异步任务调度器，提交一个异步任务，启动
+ * LoginProcesser执行登录用户验证逻辑。
+ */
 @Slf4j
 @Service("LoginRequestHandler")
 @ChannelHandler.Sharable

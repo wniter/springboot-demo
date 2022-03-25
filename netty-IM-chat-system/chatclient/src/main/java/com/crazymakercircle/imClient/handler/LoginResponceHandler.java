@@ -11,6 +11,13 @@ import io.netty.channel.ChannelPipeline;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+/**
+ * LoginResponceHandler登录响应处理器对消息类型进行判断：
+ * （1）如果消息类型是请求响应消息并且登录成功，则取出绑定的会话（Session），
+ * 再设置登录成功的状态。完成登录成功处理之后，进行其他的客户端业务处理。
+ * （2）如果消息类型不是请求响应消息，则调用父类默认的super.channelRead()入站处
+ * 理方法，将数据包交给流水线的下一站Handler业务处理器去处理。
+ */
 @Slf4j
 @ChannelHandler.Sharable
 @Service("LoginResponceHandler")

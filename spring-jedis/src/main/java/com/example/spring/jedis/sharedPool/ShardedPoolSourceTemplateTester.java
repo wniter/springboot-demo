@@ -1,8 +1,6 @@
 package com.example.spring.jedis.sharedPool;
 
-import com.crazymakercircle.im.common.bean.User;
-import com.crazymakercircle.springUtil.StartUpApplication;
-import com.crazymakercircle.util.JsonUtil;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
