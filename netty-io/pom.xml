@@ -41,7 +41,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <version>${springboot}</version>
+
             <!--<scope>test</scope>-->
         </dependency>
 
@@ -260,6 +260,38 @@
                         <id>repackage</id>
                         <goals>
                             <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+<!--protobuf-maven-plugin插件的配置项，具体介绍如下：
+⚫ protoSourceRoot：“proto”消息结构体所在文件的路径；
+⚫ outputDirectory：生成的POJO类和Builder类的目标路径；
+⚫ protocExecutable：protobuf的Java代码生成工具的protoc3.6.1.exe可执行文件的路径。-->
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.5.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <!--proto文件路径-->
+                    <protoSourceRoot>${project.basedir}/protobuf</protoSourceRoot>
+                    <!--目标路径-->
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                    <!--设置是否在生成java文件之前清空outputDirectory的文件-->
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                    <!--临时目录-->
+                    <temporaryProtoFileDirectory>${project.build.directory}/protoc-temp</temporaryProtoFileDirectory>
+                    <!--protoc 可执行文件路径-->
+                    <protocExecutable>${project.basedir}/protobuf/protoc3.6.1.exe</protocExecutable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>test-compile</goal>
                         </goals>
                     </execution>
                 </executions>
