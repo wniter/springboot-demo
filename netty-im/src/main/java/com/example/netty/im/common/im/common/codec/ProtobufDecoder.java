@@ -10,17 +10,17 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
-/**
- * create by 尼恩 @ 疯狂创客圈
- **/
-
 
 /**
- * create by 尼恩 @ 疯狂创客圈
- * <p>
- * 解码器
+ * 自定义Protobuf解码器
+ * 自定义Protobuf解码器，通过继承Netty中基础的ByteToMessageDecoder解码器类实现，
+ * 在其继承的decode方法中，将ByteBuf字节码解码成Protobuf的POJO实例，大致的过程如
+ * 下：
+ * （1）首先读取长度，如果长度位数不够，则终止读取。
+ * （2）然后读取魔数、版本号等其他的字段。
+ * （3）最后按照净长度读取内容。如果内容的字节数不够，则恢复到之前的起始位置
+ * （也就是长度的位置），然后终止读取。
  */
-
 @Slf4j
 public class ProtobufDecoder extends ByteToMessageDecoder {
 

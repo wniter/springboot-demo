@@ -9,9 +9,11 @@ import io.netty.handler.codec.MessageToByteEncoder;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * create by 尼恩 @ 疯狂创客圈
- *
- * 编码器
+ * 自定义ProtoBuf编解码器
+ * 自定义Protobuf编码器，通过继承Netty中基础的MessageToByteEncoder编码器类，实现
+ * 其抽象的编码方法encode(…)，在该方法中把以下内容写入到目标ByteBuf： （1）写入待发送的Protobuf POJO实例的二进制字节长度；
+ * （2）写入其他的字段，如魔数、版本号；
+ * （3）写入Protobuf POJO实例的二进制字节码内容。
  */
 
 @Slf4j
