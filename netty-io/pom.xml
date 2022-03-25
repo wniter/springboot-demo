@@ -270,32 +270,32 @@
 ⚫ protoSourceRoot：“proto”消息结构体所在文件的路径；
 ⚫ outputDirectory：生成的POJO类和Builder类的目标路径；
 ⚫ protocExecutable：protobuf的Java代码生成工具的protoc3.6.1.exe可执行文件的路径。-->
-            <plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.5.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <!--proto文件路径-->
-                    <protoSourceRoot>${project.basedir}/protobuf</protoSourceRoot>
-                    <!--目标路径-->
-                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
-                    <!--设置是否在生成java文件之前清空outputDirectory的文件-->
-                    <clearOutputDirectory>false</clearOutputDirectory>
-                    <!--临时目录-->
-                    <temporaryProtoFileDirectory>${project.build.directory}/protoc-temp</temporaryProtoFileDirectory>
-                    <!--protoc 可执行文件路径-->
-                    <protocExecutable>${project.basedir}/protobuf/protoc3.6.1.exe</protocExecutable>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>test-compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.xolstice.maven.plugins</groupId>-->
+<!--                <artifactId>protobuf-maven-plugin</artifactId>-->
+<!--                <version>0.5.0</version>-->
+<!--                <extensions>true</extensions>-->
+<!--                <configuration>-->
+<!--                    &lt;!&ndash;proto文件路径&ndash;&gt;-->
+<!--                    <protoSourceRoot>${project.basedir}/protobuf</protoSourceRoot>-->
+<!--                    &lt;!&ndash;目标路径&ndash;&gt;-->
+<!--                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>-->
+<!--                    &lt;!&ndash;设置是否在生成java文件之前清空outputDirectory的文件&ndash;&gt;-->
+<!--                    <clearOutputDirectory>false</clearOutputDirectory>-->
+<!--                    &lt;!&ndash;临时目录&ndash;&gt;-->
+<!--                    <temporaryProtoFileDirectory>${project.build.directory}/protoc-temp</temporaryProtoFileDirectory>-->
+<!--                    &lt;!&ndash;protoc 可执行文件路径&ndash;&gt;-->
+<!--                    <protocExecutable>${project.basedir}/protobuf/protoc3.6.1.exe</protocExecutable>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>compile</goal>-->
+<!--                            <goal>test-compile</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 
