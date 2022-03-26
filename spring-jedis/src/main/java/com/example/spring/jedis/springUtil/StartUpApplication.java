@@ -1,13 +1,14 @@
-package com.example.zookeeper.demo;
+package com.example.spring.jedis.springUtil;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * create by 尼恩 @ 疯狂创客圈
+ **/
 @SpringBootApplication
-public class ZookeeperDemoApplication {
-
+public class StartUpApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ZookeeperDemoApplication.class, args);
+        SpringApplication.run(StartUpApplication.class, args);
     }
-
 }

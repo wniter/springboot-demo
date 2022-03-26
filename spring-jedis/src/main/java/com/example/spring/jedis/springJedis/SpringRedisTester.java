@@ -1,8 +1,9 @@
 package com.example.spring.jedis.springJedis;
 
-import com.crazymakercircle.im.common.bean.User;
-import com.crazymakercircle.util.Logger;
+import com.example.spring.jedis.config.Logger;
+import com.example.spring.jedis.entity.User;
 import org.junit.Test;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

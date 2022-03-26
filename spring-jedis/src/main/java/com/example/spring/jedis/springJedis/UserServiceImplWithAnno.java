@@ -1,7 +1,8 @@
 package com.example.spring.jedis.springJedis;
 
-import com.crazymakercircle.im.common.bean.User;
-import com.crazymakercircle.util.Logger;
+
+import com.example.spring.jedis.config.Logger;
+import com.example.spring.jedis.entity.User;
 import org.springframework.cache.annotation.*;
 import org.springframework.stereotype.Service;
 

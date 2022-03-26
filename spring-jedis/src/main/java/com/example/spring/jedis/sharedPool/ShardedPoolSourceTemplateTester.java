@@ -1,6 +1,9 @@
 package com.example.spring.jedis.sharedPool;
 
 
+import com.example.spring.jedis.config.JsonUtil;
+import com.example.spring.jedis.entity.User;
+import com.example.spring.jedis.springUtil.StartUpApplication;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,7 @@
 package com.example.spring.jedis.springJedis;
 
-import com.crazymakercircle.im.common.bean.User;
+
+import com.example.spring.jedis.entity.User;
 
 /**
  * create by 尼恩 @ 疯狂创客圈

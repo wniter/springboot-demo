@@ -1,6 +1,7 @@
 package com.example.spring.jedis.springJedis;
 
-import com.crazymakercircle.util.Logger;
+
+import com.example.spring.jedis.config.Logger;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.expression.EvaluationContext;
