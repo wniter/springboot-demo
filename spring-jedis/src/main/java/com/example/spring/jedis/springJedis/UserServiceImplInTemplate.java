@@ -8,8 +8,24 @@ import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**
- * create by 尼恩 @ 疯狂创客圈
- **/
+ *
+ * 一般来说，在普通的CRUD场景中，大致涉及到的缓存操作为：
+ * 1. 创建缓存
+ * 在创建（Create）一个POJO实例的时候，对POJO实例进行分布式缓存，一般以“缓存
+ * 前缀+ID”为缓存的Key键，POJO对象为缓存的Value值，直接缓存POJO的二进制字节。前
+ * 提是：POJO必须可序列化，实现java.io.Serializable空接口。如果POJO不可序列化，也是可
+ * 以缓存的，但是必须自己实现序列化的方式，例如使用JSON方式序列化。
+ * 2. 查询缓存
+ * 在查询（Retrieve）一个POJO实例的时候，首先应该根据POJO缓存的Key键，从Redis
+ * 缓存中返回结果。如果不存在，才去查询数据库，并且能够将数据库的结果缓存起来。
+ * 3. 更新缓存
+ * 在更新（Update）一个POJO实例的时候，既需要更新数据库的POJO数据记录，也需
+ * 要更新POJO的缓存记录。
+ * 4. 删除缓存
+ * 在删除（Delete）一个POJO实例的时候，既需要删除数据库的POJO数据记录，也需要
+ * 删除POJO的缓存记录。
+ * 使用spring-data-redis开源库可以快速地完成上述的缓存CRUD操作。
+ */
 
 public class UserServiceImplInTemplate implements UserService {
 
