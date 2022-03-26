@@ -7,6 +7,13 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import org.springframework.stereotype.Service;
 
+/**
+ * 客户端的ChatMsgHandler聊天消息处理器很简单，主要的工作如下：
+ * （1）对消息类型进行判断：判断是否为聊天请求Protobuf数据包。如果不是，通过
+ * super.channelRead(ctx, msg) 将消息交给流水线的下一站。
+ * （2）如果是聊天消息，则将聊天消息显示在控制台.
+ *
+ */
 @ChannelHandler.Sharable
 @Service("ChatMsgHandler")
 public class ChatMsgHandler extends ChannelInboundHandlerAdapter {
