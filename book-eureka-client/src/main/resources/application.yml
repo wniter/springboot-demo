@@ -1,0 +1,26 @@
+# 应用名称
+#spring.application.name=book-eureka-server
+
+server:
+  port: 1000
+eureka:
+  instance:
+    hostport: 1001
+    ip-address: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.ip-address}:${eureka.instance.hostport}/eureka/
+spring:
+  application:
+    name: book-eureka-client
+  cloud:
+    inetutils:
+      timeout-seconds: 10
+
+
+
+
+
+

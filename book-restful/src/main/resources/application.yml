@@ -1,0 +1,15 @@
+## 应用名称
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/demo
+#    username: root
+#    password: 123456
+#端口
+server:
+  port: 8080
+#可以自定义参数：
+book:
+#  @Value("${book.name}")
+  name: name
+
