@@ -1,0 +1,7 @@
+# 应用名称
+spring:
+  security:
+    user:
+      name: springboot-adminmanager
+
+
