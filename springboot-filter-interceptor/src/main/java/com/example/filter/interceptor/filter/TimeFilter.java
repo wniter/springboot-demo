@@ -4,8 +4,22 @@ import javax.servlet.*;
 import java.io.IOException;
 import java.util.Date;
 
-// @Component
-// @WebFilter(urlPatterns = {"/*"})
+/**
+ *过滤器
+ *定义一个TimeFilter类，实现javax.servlet.Filter：
+ * TimeFilter重写了Filter的三个方法，方法名称已经很直白的描述了其作用，这里不再赘述。
+ * 要使该过滤器在Spring Boot中生效，还需要一些配置。这里主要有两种配置方式。
+ */
+
+/**
+ * 配置方式一
+ * @Component注解让TimeFilter成为Spring上下文中的一个Bean，
+ * @WebFilter注解的urlPatterns属性配置了哪些请求可以进入该过滤器，/*表示所有请求。
+ * // @Component
+ * // @WebFilter(urlPatterns = {"/*"})
+ */
+
+
 public class TimeFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

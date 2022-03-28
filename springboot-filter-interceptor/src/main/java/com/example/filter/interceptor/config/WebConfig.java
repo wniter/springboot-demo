@@ -12,6 +12,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *配置方式二
+ *除了在过滤器类上加注解外，我们也可以通过FilterRegistrationBean来注册过滤器。
+ * 定义一个WebConfig类，加上@Configuration注解表明其为配置类，然后通过FilterRegistrationBean来注册过滤器:
+ * FilterRegistrationBean除了注册过滤器TimeFilter外还通过setUrlPatterns方法配置了URL匹配规则。
+ * 重启项目访问http://localhost:8080/user/1，我们可以看到和上面一样的效果。
+ */
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
     @Bean
