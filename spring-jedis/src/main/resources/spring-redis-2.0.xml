@@ -12,7 +12,7 @@
        default-lazy-init="false">
 
 
-    <context:component-scan base-package="com.crazymakercircle.redis.springJedis"/>
+    <context:component-scan base-package="com.example.spring.jedis.springJedis"/>
 
     <context:annotation-config/>
 
@@ -133,15 +133,15 @@
 
 
     <!--将redisTemplate 封装成缓存service-->
-    <bean id="cacheOperationService" class="com.crazymakercircle.redis.springJedis.CacheOperationService">
+    <bean id="cacheOperationService" class="com.example.spring.jedis.springJedis.CacheOperationService">
         <property name="redisTemplate" ref="redisTemplate"/>
     </bean>
     <!--业务service,依赖缓存service-->
-    <bean id="serviceImplWithTemplate" class="com.crazymakercircle.redis.springJedis.UserServiceImplWithTemplate">
+    <bean id="serviceImplWithTemplate" class="com.example.spring.jedis.springJedis.UserServiceImplWithTemplate">
         <property name="cacheOperationService" ref="cacheOperationService"/>
     </bean>
 
-    <bean id="serviceImplInTemplate" class="com.crazymakercircle.redis.springJedis.UserServiceImplInTemplate">
+    <bean id="serviceImplInTemplate" class="com.example.spring.jedis.springJedis.UserServiceImplInTemplate">
         <property name="redisTemplate" ref="redisTemplate"/>
     </bean>
 

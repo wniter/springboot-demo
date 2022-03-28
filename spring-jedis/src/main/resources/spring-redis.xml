@@ -12,7 +12,7 @@
        default-lazy-init="false">
 
 
-    <context:component-scan base-package="com.crazymakercircle.redis.springJedis"/>
+    <context:component-scan base-package="com.example.spring.jedis.springJedis"/>
 
     <context:annotation-config/>
 
@@ -66,28 +66,28 @@
         <property name="enableTransactionSupport" value="true"></property>
     </bean>
 
-    <!--自定义redis工具类,在需要缓存的地方注入此类  -->
-    <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">
-        <constructor-arg ref="redisTemplate"/>
-        <constructor-arg name="cacheNames">
-            <set>
-                <!--声明userCache-->
-                <value>userCache</value>
-            </set>
-        </constructor-arg>
-    </bean>
+<!--    &lt;!&ndash;自定义redis工具类,在需要缓存的地方注入此类  &ndash;&gt;-->
+<!--    <bean id="cacheManager" class="org.springframework.data.redis.cache.RedisCacheManager">-->
+<!--        <constructor-arg ref="redisTemplate"/>-->
+<!--        <constructor-arg name="cacheNames">-->
+<!--            <set>-->
+<!--                &lt;!&ndash;声明userCache&ndash;&gt;-->
+<!--                <value>userCache</value>-->
+<!--            </set>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
 
 
     <!--将redisTemplate 封装成缓存service-->
-    <bean id="cacheOperationService" class="com.crazymakercircle.redis.springJedis.CacheOperationService">
+    <bean id="cacheOperationService" class="com.example.spring.jedis.springJedis.CacheOperationService">
         <property name="redisTemplate" ref="redisTemplate"/>
     </bean>
     <!--业务service,依赖缓存service-->
-    <bean id="serviceImplWithTemplate" class="com.crazymakercircle.redis.springJedis.UserServiceImplWithTemplate">
+    <bean id="serviceImplWithTemplate" class="com.example.spring.jedis.springJedis.UserServiceImplWithTemplate">
         <property name="cacheOperationService" ref="cacheOperationService"/>
     </bean>
 
-    <bean id="serviceImplInTemplate" class="com.crazymakercircle.redis.springJedis.UserServiceImplInTemplate">
+    <bean id="serviceImplInTemplate" class="com.example.spring.jedis.springJedis.UserServiceImplInTemplate">
         <property name="redisTemplate" ref="redisTemplate"/>
     </bean>
 
