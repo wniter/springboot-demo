@@ -1,0 +1,12 @@
+# 应用名称
+#spring.application.name=springsecurity-oauth2-customize
+security:
+  oauth2:
+    client:
+      client-id: test
+      client-secret: test1234
+#      registered-redirect-uri: http://mrbird.cc
+spring:
+  redis:
+    password: 123456
+    host:
