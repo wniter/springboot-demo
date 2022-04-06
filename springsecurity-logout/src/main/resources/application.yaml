@@ -1,0 +1,14 @@
+# 应用名称
+#spring.application.name=springsecurity-logout
+security:
+  basic:
+    enabled: true
+
+server:
+  session:
+    timeout: 3600
+#No session repository could be auto-configured, check your configuration (session store type is 'redis')
+spring:
+  session:
+    store-type: none
+
