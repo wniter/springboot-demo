@@ -1,0 +1,19 @@
+server:
+   port: 8022
+spring:
+   application:
+      name: microservice-consumer-movie-feign-with-hystrix-stream
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://localhost:8761/eureka/
+   instance:
+      preferIpAddress: true
+feign:
+   hystrix:
+      enabled: true
+management:
+   endpoints:
+      web:
+         exposure:
+            include: '*'
